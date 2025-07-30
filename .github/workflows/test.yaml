@@ -1,0 +1,14 @@
+name: test1 # ワークフローの名前
+on:
+  push: # pushイベントでトリガー
+    branches:
+      - main # mainブランチへのpushでトリガー
+  workflow_dispatch:
+
+jobs:
+  build: # ジョブの名前
+    runs-on: ubuntu-latest # 実行環境
+    steps:
+      - uses: actions/checkout@v4 # リポジトリをチェックアウト
+      - name: Run a one-line script # ステップの名前
+        run: echo "Hello, world!" # 実行するコマンド
