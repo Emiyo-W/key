@@ -8,7 +8,7 @@ on:
 
 jobs:
   backend-jobs:
-    uses: ./test.yml
+    uses: ./test.yml@main
 
   frontend-jobs:
-    uses: ./test2.yml
+    uses: ./test2.yml@main
