@@ -1,22 +1,14 @@
-name: test3 # ワークフローの名前
+name: test3
 
 on:
-  push: # pushイベントでトリガー
+  push:
     branches:
-      - main # mainブランチへのpushでトリガー
-  workflow_dispatch: # 手動での実行
+      - main
+  workflow_dispatch:
 
-jobs: # ジョブの開始を示すキーワード
-  backend-jobs: # ジョブグループの名前
-    runs-on: ubuntu-latest # 実行環境
-    steps:
-      - uses: actions/checkout@v4 # リポジトリをチェックアウト
-      - name: Run a one-line script # ステップの名前
-        run: echo "Hello, world! backend" # 実行するコマンド
+jobs:
+  backend-jobs:
+    uses: ./.github/workflows/test.yml
 
-  frontend-jobs: # 別のジョブグループの名前
-    runs-on: ubuntu-latest # 実行環境
-    steps:
-      - uses: actions/checkout@v4 # リポジトリをチェックアウト
-      - name: Run a one-line script # ステップの名前
-        run: echo "Hello, world! frontend" # 実行するコマンド
+  frontend-jobs:
+    uses: ./.github/workflows/test2.yml

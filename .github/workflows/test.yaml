@@ -1,5 +1,6 @@
 name: test1 # ワークフローの名前
 on:
+  workflow_call: # このワークフローが呼び出されることを許可
   push: # pushイベントでトリガー
     branches:
       - main # mainブランチへのpushでトリガー
