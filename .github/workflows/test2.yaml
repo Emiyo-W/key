@@ -1,12 +1,10 @@
 name: test2 # ワークフローの名前
 on:
-  workflow_run:
-    workflows: 
-      - test1
-    types: 
-      - completed
-    branches: 
-      - main
+  push: # pushイベントでトリガー
+    branches:
+      - main # mainブランチへのpushでトリガー
+  workflow_dispatch:
+
 jobs:
   build: # ジョブの名前
     runs-on: ubuntu-latest # 実行環境
